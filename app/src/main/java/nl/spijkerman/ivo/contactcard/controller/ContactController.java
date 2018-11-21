@@ -49,8 +49,9 @@ public enum ContactController {
         return contacts.get(id);
     }
 
-    public List<Contact> getAll() {
-        return contacts;
+    public Contact[] getAll() {
+        // TODO change saving implementation
+        return contacts.toArray(new Contact[0]);
     }
 
 }
