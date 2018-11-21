@@ -21,7 +21,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
     "picture",
     "nat"
 })
-public class Result_ implements Serializable
+public class Contact implements Serializable
 {
 
     @JsonProperty("gender")

@@ -16,7 +16,7 @@ public class Result implements Serializable
 {
 
     @JsonProperty("results")
-    public List<Result_> results = null;
+    public List<Contact> results = null;
     @JsonProperty("info")
     public Info info;
     private final static long serialVersionUID = 7970914799052012255L;
