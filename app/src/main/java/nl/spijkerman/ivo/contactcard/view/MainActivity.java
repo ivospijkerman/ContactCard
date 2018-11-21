@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-        TextView deprecated = findViewById(R.id.deprecated);
-        deprecated.setText(ContactController.INSTANCE.getAll().stream().map(c -> c.name.first + " " + c.name.last).collect(Collectors.joining("\n")));
+//        TextView deprecated = findViewById(R.id);
+//        deprecated.setText(ContactController.INSTANCE.getAll().stream().map(c -> c.name.first + " " + c.name.last).collect(Collectors.joining("\n")));
     }
 }
