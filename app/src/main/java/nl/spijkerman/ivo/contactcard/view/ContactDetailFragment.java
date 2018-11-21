@@ -12,33 +12,50 @@ import java.util.stream.Stream;
 
 import nl.spijkerman.ivo.contactcard.R;
 import nl.spijkerman.ivo.contactcard.controller.ContactController;
+import nl.spijkerman.ivo.contactcard.controller.ImageDownloader;
 import nl.spijkerman.ivo.contactcard.model.Contact;
+import nl.spijkerman.ivo.contactcard.model.Location;
 
 public class ContactDetailFragment extends Fragment {
     public static final String CONTACT_ID = "iuawgdiuadwg";
+
+    private ImageView imageView;
+    private TextView name;
+    private TextView prop0;
+    private TextView prop1;
+    private TextView prop2;
+    private TextView prop3;
+    private TextView prop4;
+    private TextView prop5;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_contact_detail, container, false);
 
-        ImageView imageView = view.findViewById(R.id.image_view);
-        TextView name = view.findViewById(R.id.text_view_name);
-        TextView prop0 = view.findViewById(R.id.text_view_property_0);
-        TextView prop1 = view.findViewById(R.id.text_view_property_1);
-        TextView prop2 = view.findViewById(R.id.text_view_property_2);
-        TextView prop3 = view.findViewById(R.id.text_view_property_3);
-        TextView prop4 = view.findViewById(R.id.text_view_property_4);
-        TextView prop5 = view.findViewById(R.id.text_view_property_5);
-
-        if (savedInstanceState == null) {
-            Stream.of(name, prop0, prop1, prop2, prop3, prop4, prop5).forEach(tv -> tv.setText(""));
-        } else {
-            int contactId = savedInstanceState.getInt(CONTACT_ID);
-            Contact contact = ContactController.INSTANCE.getById(contactId);
-            name.setText(contact.name.toString());
-        }
-
+        imageView = view.findViewById(R.id.image_view);
+        name = view.findViewById(R.id.text_view_name);
+        prop0 = view.findViewById(R.id.text_view_property_0);
+        prop1 = view.findViewById(R.id.text_view_property_1);
+        prop2 = view.findViewById(R.id.text_view_property_2);
+        prop3 = view.findViewById(R.id.text_view_property_3);
+        prop4 = view.findViewById(R.id.text_view_property_4);
+        prop5 = view.findViewById(R.id.text_view_property_5);
 
         return view;
+    }
+
+    public void drawFor(Contact contact) {
+        ImageDownloader id = new ImageDownloader(imageView);
+        id.execute(contact.picture.large);
+
+
+        Location location = contact.location;
+        name.setText(contact.name.toString());
+        prop0.setText(contact.email);
+        prop1.setText(location.street);
+        prop2.setText(location.postcode.toString());
+        prop3.setText(location.city);
+        prop4.setText(contact.phone);
+        prop5.setText(contact.cell);
     }
 }

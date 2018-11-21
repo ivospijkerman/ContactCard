@@ -25,7 +25,7 @@ public class ContactListFragment extends Fragment {
         ContactArrayAdapter adapter = new ContactArrayAdapter(this.getContext(), R.layout.list_item_contact, ContactController.INSTANCE.getAll());
 
         contactListView.setAdapter(adapter);
-        contactListView.setOnClickListener(this.getActivity());
+        contactListView.setOnItemClickListener((MainActivity) this.getActivity());
 
         return view;
     }
