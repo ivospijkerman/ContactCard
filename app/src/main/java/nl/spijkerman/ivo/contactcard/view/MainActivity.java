@@ -2,6 +2,7 @@ package nl.spijkerman.ivo.contactcard.view;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 
 import java.util.stream.Collectors;
@@ -10,7 +11,7 @@ import nl.spijkerman.ivo.contactcard.R;
 import nl.spijkerman.ivo.contactcard.controller.ContactController;
 import nl.spijkerman.ivo.contactcard.model.Contact;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,7 +19,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-//        TextView deprecated = findViewById(R.id);
-//        deprecated.setText(ContactController.INSTANCE.getAll().stream().map(c -> c.name.first + " " + c.name.last).collect(Collectors.joining("\n")));
+    }
+
+    @Override
+    public void onClick(View v) {
+        ContactDetailFragment detailFragment = (ContactDetailFragment) getFragmentManager().findFragmentById(R.id.fragment_b);
     }
 }
