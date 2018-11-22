@@ -8,10 +8,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import java.util.stream.Stream;
-
 import nl.spijkerman.ivo.contactcard.R;
-import nl.spijkerman.ivo.contactcard.controller.ContactController;
 import nl.spijkerman.ivo.contactcard.controller.ImageDownloader;
 import nl.spijkerman.ivo.contactcard.model.Contact;
 import nl.spijkerman.ivo.contactcard.model.Location;
