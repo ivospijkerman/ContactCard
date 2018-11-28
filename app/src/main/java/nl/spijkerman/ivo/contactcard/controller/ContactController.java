@@ -11,6 +11,7 @@ import java.util.List;
 import nl.spijkerman.ivo.contactcard.model.Contact;
 import nl.spijkerman.ivo.contactcard.model.Result;
 
+@Deprecated
 public enum ContactController {
     INSTANCE;
 

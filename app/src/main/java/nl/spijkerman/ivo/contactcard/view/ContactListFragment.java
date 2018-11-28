@@ -11,6 +11,8 @@ import android.widget.ListView;
 import nl.spijkerman.ivo.contactcard.R;
 import nl.spijkerman.ivo.contactcard.adapter.ContactArrayAdapter;
 import nl.spijkerman.ivo.contactcard.controller.ContactController;
+import nl.spijkerman.ivo.contactcard.controller.ContactRepository;
+import nl.spijkerman.ivo.contactcard.model.Contact;
 
 public class ContactListFragment extends Fragment {
 
@@ -22,7 +24,9 @@ public class ContactListFragment extends Fragment {
 
         contactListView = view.findViewById(R.id.list_view_contacts);
 
-        ContactArrayAdapter adapter = new ContactArrayAdapter(this.getContext(), R.layout.list_item_contact, ContactController.INSTANCE.getAll());
+//        Contact[] allContacts = ContactController.INSTANCE.getAll();
+        Contact[] allContacts = new ContactRepository(this.getContext()).getAll();
+        ContactArrayAdapter adapter = new ContactArrayAdapter(this.getContext(), R.layout.list_item_contact, allContacts);
 
         contactListView.setAdapter(adapter);
         contactListView.setOnItemClickListener((MainActivity) this.getActivity());
