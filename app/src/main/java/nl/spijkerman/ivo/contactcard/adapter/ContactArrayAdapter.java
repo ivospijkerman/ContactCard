@@ -23,7 +23,7 @@ public class ContactArrayAdapter extends ArrayAdapter<Contact> {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
 //        Contact contact = ContactController.INSTANCE.getById(position);
-        Contact contact = new ContactRepository(this.getContext()).getById(1);
+        Contact contact = new ContactRepository(this.getContext()).getById(position + 1);
 
         if (convertView == null)
             convertView = ((LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE)).inflate(R.layout.list_item_contact, null);

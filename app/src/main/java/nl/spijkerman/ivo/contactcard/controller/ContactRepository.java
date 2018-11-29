@@ -17,7 +17,7 @@ import nl.spijkerman.ivo.contactcard.model.Picture;
 // TODO create super Repo class
 public class ContactRepository extends SQLiteOpenHelper {
 
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 3;
     private static final String DATABASE_NAME = "contactCardApp";
     private static final String TABLE_NAME = "contact";
 
@@ -45,15 +45,18 @@ public class ContactRepository extends SQLiteOpenHelper {
 
         db.execSQL("INSERT INTO " + TABLE_NAME + " VALUES" +
                 "(1, 'connor', 'castro', 'connor.castro@example.com', '9270 church lane', 9405, 'durham', '023 3983 9387', '0709-807-276', 'https://randomuser.me/api/portraits/men/52.jpg', 'https://randomuser.me/api/portraits/thumb/men/52.jpg');");
+
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        Log.i("ContactRepository.onUpgrade", "no upgrade operations defined");
+            db.execSQL("INSERT INTO " + TABLE_NAME + " VALUES" +
+                    "(2, 'bonnor', 'bastro', 'connor.castro@example.com', '9270 church lane', 9405, 'durham', '023 3983 9387', '0709-807-276', 'https://randomuser.me/api/portraits/men/53.jpg', 'https://randomuser.me/api/portraits/thumb/men/53.jpg');");
     }
 
+    // TODO make this better
     public Contact[] getAll() {
-        return new Contact[]{getById(1)};
+        return new Contact[]{getById(1), getById(2)};
     }
 
     public Contact getById(int id) throws IllegalArgumentException {

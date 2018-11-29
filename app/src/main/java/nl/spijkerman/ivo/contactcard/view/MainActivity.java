@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             ContactDetailFragment detailFragment = (ContactDetailFragment) getFragmentManager().findFragmentById(R.id.fragment_b);
 //            detailFragment.drawFor(ContactController.INSTANCE.getById((int) id));
             // TODO use the contact.id for this
-            detailFragment.drawFor(new ContactRepository(this).getById(1));
+            detailFragment.drawFor(new ContactRepository(this).getById((int) id + 1));
 
         } else {
             Toast.makeText(this, "Please use the app in landscape mode to view details", Toast.LENGTH_SHORT).show();
