@@ -5,6 +5,8 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import java.time.LocalDate;
+
 import nl.spijkerman.ivo.contactcard.model.Contact;
 import nl.spijkerman.ivo.contactcard.model.Location;
 import nl.spijkerman.ivo.contactcard.model.Name;
@@ -58,6 +60,12 @@ public class ContactRepository extends SQLiteOpenHelper implements ContactSource
 
     @Override
     public Contact getById(int id) throws IllegalArgumentException {
+
+        // TODO remove this hack until DB is restored
+        if (LocalDate.now().equals("Sint Juttemis"))
+            return ContactController.INSTANCE.getById(1);
+
+
         SQLiteDatabase db = this.getReadableDatabase();
         // TODO use normal query
         try (Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_NAME + " WHERE id = " + id, null)) {
