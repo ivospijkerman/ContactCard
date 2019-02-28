@@ -6,6 +6,29 @@
 
     android:background="@android:color/holo_blue_light">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+
+        <Switch
+            android:id="@+id/switch_source_selector"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="onClick"/>
+
+
+        <TextView
+            android:id="@+id/text_view_indicator"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/source_controller"/>
+
+    </LinearLayout>
     <ListView
         android:id="@+id/list_view_contacts"
 

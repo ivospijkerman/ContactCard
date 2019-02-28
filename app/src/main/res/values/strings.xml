@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Contact Card</string>
+    <string name="source_repo">Repository</string>
+    <string name="source_controller">Controller</string>
 </resources>

@@ -11,8 +11,7 @@ import java.util.List;
 import nl.spijkerman.ivo.contactcard.model.Contact;
 import nl.spijkerman.ivo.contactcard.model.Result;
 
-@Deprecated
-public enum ContactController {
+public enum ContactController implements ContactSource {
     INSTANCE;
 
     private List<Contact> contacts;
@@ -44,12 +43,14 @@ public enum ContactController {
         }
     }
 
+    @Override
     public Contact getById(int id) {
         if (id < 0 || id > contacts.size())
             throw new IllegalArgumentException();
         return contacts.get(id);
     }
 
+    @Override
     public Contact[] getAll() {
         // TODO change saving implementation
         return contacts.toArray(new Contact[0]);

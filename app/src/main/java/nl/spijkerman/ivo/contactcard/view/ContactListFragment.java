@@ -12,6 +12,7 @@ import nl.spijkerman.ivo.contactcard.R;
 import nl.spijkerman.ivo.contactcard.adapter.ContactArrayAdapter;
 import nl.spijkerman.ivo.contactcard.controller.ContactController;
 import nl.spijkerman.ivo.contactcard.controller.ContactRepository;
+import nl.spijkerman.ivo.contactcard.controller.ContactSource;
 import nl.spijkerman.ivo.contactcard.model.Contact;
 
 public class ContactListFragment extends Fragment {
@@ -24,8 +25,9 @@ public class ContactListFragment extends Fragment {
 
         contactListView = view.findViewById(R.id.list_view_contacts);
 
-//        Contact[] allContacts = ContactController.INSTANCE.getAll();
-        Contact[] allContacts = new ContactRepository(this.getContext()).getAll();
+        boolean useRepo = this.getActivity().getSharedPreferences(ContactSource.SOURCE_PREF, 0).getBoolean(ContactSource.USE_REPO, true);
+        ContactSource contactSource = useRepo ? new ContactRepository(this.getContext()) : ContactController.INSTANCE;
+        Contact[] allContacts = contactSource.getAll();
         ContactArrayAdapter adapter = new ContactArrayAdapter(this.getContext(), R.layout.list_item_contact, allContacts);
 
         contactListView.setAdapter(adapter);

@@ -15,7 +15,7 @@ import nl.spijkerman.ivo.contactcard.model.Name;
 import nl.spijkerman.ivo.contactcard.model.Picture;
 
 // TODO create super Repo class
-public class ContactRepository extends SQLiteOpenHelper {
+public class ContactRepository extends SQLiteOpenHelper implements ContactSource {
 
     private static final int DATABASE_VERSION = 3;
     private static final String DATABASE_NAME = "contactCardApp";
@@ -55,10 +55,12 @@ public class ContactRepository extends SQLiteOpenHelper {
     }
 
     // TODO make this better
+    @Override
     public Contact[] getAll() {
         return new Contact[]{getById(1), getById(2)};
     }
 
+    @Override
     public Contact getById(int id) throws IllegalArgumentException {
         SQLiteDatabase db = this.getReadableDatabase();
         // TODO use normal query
