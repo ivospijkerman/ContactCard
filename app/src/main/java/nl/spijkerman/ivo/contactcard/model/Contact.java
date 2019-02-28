@@ -1,28 +1,28 @@
 
 package nl.spijkerman.ivo.contactcard.model;
 
-import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
+import java.io.Serializable;
+
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
-    "gender",
-    "name",
-    "location",
-    "email",
-    "login",
-    "dob",
-    "registered",
-    "phone",
-    "cell",
-    "id",
-    "picture",
-    "nat"
+        "gender",
+        "name",
+        "location",
+        "email",
+        "login",
+        "dob",
+        "registered",
+        "phone",
+        "cell",
+        "id",
+        "picture",
+        "nat"
 })
-public class Contact implements Serializable
-{
+public class Contact implements Serializable {
 
     @JsonProperty("gender")
     public String gender;

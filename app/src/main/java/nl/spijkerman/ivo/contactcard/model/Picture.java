@@ -1,19 +1,19 @@
 
 package nl.spijkerman.ivo.contactcard.model;
 
-import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
+import java.io.Serializable;
+
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
-    "large",
-    "medium",
-    "thumbnail"
+        "large",
+        "medium",
+        "thumbnail"
 })
-public class Picture implements Serializable
-{
+public class Picture implements Serializable {
 
     @JsonProperty("large")
     public String large;

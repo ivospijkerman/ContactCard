@@ -1,23 +1,22 @@
-
 package nl.spijkerman.ivo.contactcard.model;
 
-import java.io.Serializable;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
+import java.io.Serializable;
+
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
-    "uuid",
-    "username",
-    "password",
-    "salt",
-    "md5",
-    "sha1",
-    "sha256"
+        "uuid",
+        "username",
+        "password",
+        "salt",
+        "md5",
+        "sha1",
+        "sha256"
 })
-public class Login implements Serializable
-{
+public class Login implements Serializable {
 
     @JsonProperty("uuid")
     public String uuid;

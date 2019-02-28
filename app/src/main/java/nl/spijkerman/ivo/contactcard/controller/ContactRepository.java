@@ -1,13 +1,9 @@
 package nl.spijkerman.ivo.contactcard.controller;
 
 import android.content.Context;
-import android.content.res.Resources;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.util.Log;
-
-import java.util.Arrays;
 
 import nl.spijkerman.ivo.contactcard.model.Contact;
 import nl.spijkerman.ivo.contactcard.model.Location;
@@ -50,8 +46,8 @@ public class ContactRepository extends SQLiteOpenHelper implements ContactSource
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-            db.execSQL("INSERT INTO " + TABLE_NAME + " VALUES" +
-                    "(2, 'bonnor', 'bastro', 'connor.castro@example.com', '9270 church lane', 9405, 'durham', '023 3983 9387', '0709-807-276', 'https://randomuser.me/api/portraits/men/53.jpg', 'https://randomuser.me/api/portraits/thumb/men/53.jpg');");
+        db.execSQL("INSERT INTO " + TABLE_NAME + " VALUES" +
+                "(2, 'bonnor', 'bastro', 'connor.castro@example.com', '9270 church lane', 9405, 'durham', '023 3983 9387', '0709-807-276', 'https://randomuser.me/api/portraits/men/53.jpg', 'https://randomuser.me/api/portraits/thumb/men/53.jpg');");
     }
 
     // TODO make this better

@@ -5,7 +5,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.LinkedList;
+import java.util.Arrays;
 import java.util.List;
 
 import nl.spijkerman.ivo.contactcard.model.Contact;
@@ -32,10 +32,9 @@ public enum ContactController implements ContactSource {
 
         ObjectMapper mapper = new ObjectMapper();
 
-        for (int i = 0; i < count; ++i) {
-            Result result = null;
+        for (String example : examples) {
             try {
-                result = mapper.readValue(examples[i], Result.class);
+                Result result = mapper.readValue(example, Result.class);
                 contacts.add(result.results.get(0));
             } catch (IOException e) {
                 e.printStackTrace();

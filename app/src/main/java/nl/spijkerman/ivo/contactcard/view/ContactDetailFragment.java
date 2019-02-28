@@ -14,7 +14,6 @@ import nl.spijkerman.ivo.contactcard.model.Contact;
 import nl.spijkerman.ivo.contactcard.model.Location;
 
 public class ContactDetailFragment extends Fragment {
-    public static final String CONTACT_ID = "iuawgdiuadwg";
 
     private ImageView imageView;
     private TextView name;

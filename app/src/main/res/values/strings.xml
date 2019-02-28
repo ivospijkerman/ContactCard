@@ -2,4 +2,6 @@
     <string name="app_name">Contact Card</string>
     <string name="source_repo">Repository</string>
     <string name="source_controller">Controller</string>
+    <string name="SOURCE_PREF">SOURCE_PREF</string>
+    <string name="USE_REPO">USE_REPO</string>
 </resources>
